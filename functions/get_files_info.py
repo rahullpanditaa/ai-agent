@@ -16,12 +16,15 @@ def get_files_info(working_directory, directory=None):
 
     files_in_directory_info = []
 
-    for file_name in os.listdir(target_dir):
-        file_path = os.path.join(target_dir, file_name)
-        file_size = os.path.getsize(file_path)
-        is_dir = os.path.isdir(file_path)
-        files_in_directory_info.append(
-            f"- {file_name}: file_size={file_size} bytes, is_dir={is_dir}"
-        )
-    return "\n".join(files_in_directory_info)
+    try:            
+        for file_name in os.listdir(target_dir):
+            file_path = os.path.join(target_dir, file_name)
+            file_size = os.path.getsize(file_path)
+            is_dir = os.path.isdir(file_path)
+            files_in_directory_info.append(
+                f"- {file_name}: file_size={file_size} bytes, is_dir={is_dir}"
+            )
+        return "\n".join(files_in_directory_info)
+    except Exception:
+        return "Error getting contents of the directory"
 
