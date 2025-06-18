@@ -1,19 +1,21 @@
-from functions.get_files_info import get_files_info
+from functions.get_files_info import get_file_content
 
 def test_get_files_info():
+    # print(get_file_content("calculator", "lorem.txt"))
     print("Test 1:")
-    print(get_files_info("calculator", "."))
+    print("-------")
+    print(get_file_content("calculator", "main.py"))
     print()
 
     print("Test 2:")
-    print(get_files_info("calculator", "pkg"))
+    print("-------")
+    print(get_file_content("calculator", "pkg/calculator.py"))
     print()
 
     print("Test 3:")
-    print(get_files_info("calculator", "/bin"))
-    print()
+    print("-------")
+    print(get_file_content("calculator", "/bin/cat"))
 
-    print("Test 4:")
-    print(get_files_info("calculator", "../"))
+    
 
 test_get_files_info()
