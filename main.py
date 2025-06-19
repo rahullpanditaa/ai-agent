@@ -58,6 +58,23 @@ schema_get_files_info = types.FunctionDeclaration(
     ),
 )
 
+schema_get_file_content = types.FunctionDeclaration(
+    name="get_file_content",
+    description="Retrieve the contents of the given file",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="The name of the file to read, relative to the working directory"
+            )
+        }
+        
+    )
+)
+
+
+
 # functions available to the LLM
 available_functions = types.Tool(function_declarations=[schema_get_files_info])
 

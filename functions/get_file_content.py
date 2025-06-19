@@ -1,3 +1,5 @@
+import os
+
 def get_file_content(working_directory, file_path):
     work_dir_path = os.path.abspath(working_directory)
     target_file_path = os.path.abspath(os.path.join(working_directory,file_path))
