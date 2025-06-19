@@ -88,6 +88,24 @@ schema_run_python_file = types.FunctionDeclaration(
     )
 )
 
+schema_write_file = types.FunctionDeclaration(
+    name="write_file",
+    description="Open a file with the given file path and write to it the contents passed in as an argument",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="The name of the file to open and write content to, relative to the working directory"
+            ),
+            "content": types.Schema(
+                type=types.Type.STRING,
+                description="The contents to write inside the given file path"
+            )
+        }
+    )
+)
+
 # functions available to the LLM
 available_functions = types.Tool(function_declarations=[schema_get_files_info])
 
