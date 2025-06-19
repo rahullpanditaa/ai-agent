@@ -73,7 +73,20 @@ schema_get_file_content = types.FunctionDeclaration(
     )
 )
 
-
+schema_run_python_file = types.FunctionDeclaration(
+    name="run_python_file",
+    description="Execute the given .py file using the given arguments, if no arguments given assume it does not take any",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="The name of the .py file to run, relative to the working directory"
+            )
+        }
+        
+    )
+)
 
 # functions available to the LLM
 available_functions = types.Tool(function_declarations=[schema_get_files_info])
